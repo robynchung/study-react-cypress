@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmailName] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form>
+        React testing cypress
+        <div>
+          First Name: <input type="text" onChange={event => setFirstName(event.target.name)} value={firstName} />
+        </div>
+        <div>
+          Last Name: <input type="text" onChange={event => setLastName(event.target.name)} value={lastName} />
+        </div>
+        <div>
+          Email: <input type="text" onChange={event => setEmailName(event.target.name)} value={email} />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 }
