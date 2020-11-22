@@ -5,20 +5,26 @@ function App() {
   const [lastName, setLastName] = useState("");
   const [email, setEmailName] = useState("");
 
+  const onInputChange = (event, func) => {
+    func(event.target.value);
+  };
+
   return (
     <div className="App">
       <form>
         React testing cypress
         <div>
-          First Name: <input type="text" onChange={event => setFirstName(event.target.name)} value={firstName} />
+          First Name: <input type="text" id="firstName" onChange={event => onInputChange(event, setFirstName)} value={firstName} />
         </div>
         <div>
-          Last Name: <input type="text" onChange={event => setLastName(event.target.name)} value={lastName} />
+          Last Name: <input type="text" id="lastName" onChange={event => onInputChange(event, setLastName)} value={lastName} />
         </div>
         <div>
-          Email: <input type="text" onChange={event => setEmailName(event.target.name)} value={email} />
+          Email: <input type="text" id="email" onChange={event => onInputChange(event, setEmailName)} value={email} />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" id="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
