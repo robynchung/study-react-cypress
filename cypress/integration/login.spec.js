@@ -19,6 +19,6 @@ describe("working with inputs", () => {
   });
 
   it("can be clicked", () => {
-    cy.get("#submit").click();
+    cy.get("#submit").click().should("be.visible").and("contain", "form submitted");
   });
 });

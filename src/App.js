@@ -4,14 +4,23 @@ function App() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmailName] = useState("");
+  const [isSubmit, setIsSubmit] = useState(false);
 
   const onInputChange = (event, func) => {
     func(event.target.value);
   };
 
+  const onSubmit = event => {
+    event.preventDefault();
+
+    if (firstName && lastName) {
+      setIsSubmit(true);
+    }
+  };
+
   return (
     <div className="App">
-      <form>
+      <form onSubmit={onSubmit}>
         React testing cypress
         <div>
           First Name: <input type="text" id="firstName" onChange={event => onInputChange(event, setFirstName)} value={firstName} />
@@ -27,6 +36,7 @@ function App() {
         </div>
         <button type="submit" id="submit">
           Submit
+          {isSubmit && <div>form submitted</div>}
         </button>
       </form>
     </div>
