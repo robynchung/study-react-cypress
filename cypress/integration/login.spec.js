@@ -4,8 +4,9 @@ describe("working with inputs", () => {
   });
 
   it("should fill first name", () => {
-    cy.get("#firstName").clear();
-    cy.get("#firstName").type("Aeri");
+    cy.get("#firstName").as("firstName");
+    cy.get("@firstName").clear();
+    cy.get("@firstName").type("Aeri");
   });
 
   it("should fill last name", () => {
