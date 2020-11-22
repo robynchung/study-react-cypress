@@ -11,6 +11,10 @@ describe("Browswer actions", () => {
     cy.get("form").should("be.visible");
   });
 
+  // it("should pause the excution", () => {
+  //   cy.pause();
+  // });
+
   it("should wait for 3 sec", () => {
     cy.wait(3000);
   });
