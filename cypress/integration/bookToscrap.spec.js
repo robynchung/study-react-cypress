@@ -13,3 +13,9 @@ describe("Browser actions", () => {
     cy.get(".product_pod").its("length").should("eq", 11);
   });
 });
+
+describe("Browser actions2", () => {
+  it("should have price", () => {
+    cy.visit("https://books.toscrape.com/catalogue/its-only-the-himalayas_981/index.html");
+  });
+});
