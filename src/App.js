@@ -22,6 +22,9 @@ function App() {
         <div>
           Email: <input type="text" id="email" onChange={event => onInputChange(event, setEmailName)} value={email} />
         </div>
+        <div>
+          <input type="checkbox" id="checkbox" />
+        </div>
         <button type="submit" id="submit">
           Submit
         </button>

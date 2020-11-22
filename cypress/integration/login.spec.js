@@ -13,6 +13,10 @@ describe("working with inputs", () => {
     cy.get("#lastName").type("Jung");
   });
 
+  it("should mark checkbox", () => {
+    cy.get("#checkbox").click();
+  });
+
   it("can be clicked", () => {
     cy.get("#submit").click();
   });
