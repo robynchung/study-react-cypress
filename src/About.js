@@ -2,7 +2,7 @@ import { useRecoilState } from "recoil";
 import defaultState from "./atom/index";
 
 export default function About() {
-  const [userInfo, setUserInfo] = useRecoilState(defaultState);
+  const [userInfo] = useRecoilState(defaultState);
 
   console.log(userInfo);
   return <>About</>;
