@@ -1,10 +1,10 @@
 import { useState } from "react";
+import { useRecoilState } from "recoil";
+import defaultAtomState from "./atom/index";
 
 function App() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmailName] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
+  const [userInfo, setUserInfo] = useRecoilState(defaultAtomState);
 
   const onInputChange = (event, func) => {
     func(event.target.value);
@@ -17,6 +17,8 @@ function App() {
       setIsSubmit(true);
     }
   };
+
+  const { firstName, lastName, email } = userInfo;
 
   return (
     <div className="App">
