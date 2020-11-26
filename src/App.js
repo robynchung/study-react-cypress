@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRecoilState } from "recoil";
+import { Link } from "react-router-dom";
 import defaultAtomState from "./atom/index";
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
           {isSubmit && <div>form submitted</div>}
         </button>
       </form>
+
+      <Link to="/about">Go to About</Link>
     </div>
   );
 }

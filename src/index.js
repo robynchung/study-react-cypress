@@ -1,13 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { RecoilRoot } from "recoil";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import App from "./App";
+import About from "./About";
 
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
-      <App />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <App />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </RecoilRoot>
   </React.StrictMode>,
   document.getElementById("root")
