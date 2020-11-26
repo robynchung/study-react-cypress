@@ -5,9 +5,10 @@ import defaultAtomState from "./atom/index";
 function App() {
   const [isSubmit, setIsSubmit] = useState(false);
   const [userInfo, setUserInfo] = useRecoilState(defaultAtomState);
+  const { firstName, lastName, email } = userInfo;
 
-  const onInputChange = (event, func) => {
-    func(event.target.value);
+  const onInputChange = (event, key) => {
+    setUserInfo({ ...userInfo, [key]: event.target.value });
   };
 
   const onSubmit = event => {
@@ -18,20 +19,18 @@ function App() {
     }
   };
 
-  const { firstName, lastName, email } = userInfo;
-
   return (
     <div className="App">
       <form onSubmit={onSubmit}>
         React testing cypress
         <div>
-          First Name: <input type="text" id="firstName" onChange={event => onInputChange(event, setFirstName)} value={firstName} />
+          First Name: <input type="text" id="firstName" onChange={event => onInputChange(event, "firstName")} value={firstName} />
         </div>
         <div>
-          Last Name: <input type="text" id="lastName" onChange={event => onInputChange(event, setLastName)} value={lastName} />
+          Last Name: <input type="text" id="lastName" onChange={event => onInputChange(event, "lastName")} value={lastName} />
         </div>
         <div>
-          Email: <input type="text" id="email" onChange={event => onInputChange(event, setEmailName)} value={email} />
+          Email: <input type="text" id="email" onChange={event => onInputChange(event, "email")} value={email} />
         </div>
         <div>
           <input type="checkbox" id="checkbox" />
